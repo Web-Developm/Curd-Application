@@ -1,7 +1,9 @@
 import { NullVisitor } from '@angular/compiler/src/render3/r3_ast';
 import { Component, Input, NgModule, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { disableDebugTools } from '@angular/platform-browser';
+//import { disableDebugTools } from '@angular/platform-browser';
+
+
 
 
 
@@ -24,25 +26,43 @@ export class Data1Component implements OnInit {
 
   public storage: any = this.data;
 
-
-
-
   title = "App";
 
   nameError = false;
   iderror = false;
 
+  today:number=Date.now();
+ 
+
+  display=():any =>{
+
+    let d:any=new Date();
+    let hour=d.getHours();
+    let min=d.getMinutes();
+    let sec=d.getSeconds();
+    let date=d.getDate();
+
+    //console.log(hour*min*sec*date);
+
+    
+
+    this.id=hour*min*sec;
+
+    
+
+  }
+
 
 
   random = (): void => {
+   
     this.id = Math.floor(Math.random() * 100);
+
   }
 
 
   add = (): void => {
-
-
-
+    
     this.data.push({ id: this.id, name: this.name, salary: this.salary, age: this.age });
     alert("Successfully add");
 

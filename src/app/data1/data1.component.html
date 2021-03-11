@@ -1,6 +1,7 @@
 <div class="jumbotron-fluid top" id="top">
     <h1 id="title" class="text-center text-white">Crud Application <i class="fas fa-spinner fa-pulse"></i></h1>
 
+    <p id="d" class="text-white text-center">{{today | date:'full'}}</p>
 
 </div>
 
@@ -16,9 +17,9 @@
             <h2 class="card-title text-center">List of Employees </h2>
         </div>
 
-        <div class="card-body">
+        <div class="card-body text-center">
 
-            <table class="table table-responsive table-bordered table-hover">
+            <table class="table table-responsive table-bordered table-hover text-center">
 
                 <thead class="bg-dark text-white">
                     <tr>
@@ -72,7 +73,7 @@
 
         <div class="form-group">
             <label><i class="far fa-1x fa-fw fa-id-card"></i> Id <span class="required">*</span> </label>
-            <input type="text" class="form-control" name="id" id="id" [(ngModel)]="id" placeholder="Id" required>
+            <input (click)="display()" type="text" class="form-control" name="id" id="id" [(ngModel)]="id" placeholder="Id" required>
             <!--<div [hidden]="id.valid || name-pristine" class="alert alert-danger">Name is required</div> -->
         </div>
 
