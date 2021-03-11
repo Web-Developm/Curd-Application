@@ -4,19 +4,19 @@
 }
 
 
-.top{
-    padding: 150px;
+#top{
+    
+    padding-top:200px;
     background-size: cover;
     background-position:center top;
     background-image:url("C:\Users\Satya\OneDrive\Documents\angular\crud-application\src\assets\sergi-kabrera-2xU7rYxsTiM-unsplash.jpg");
-    background-origin: border-box;
     background-attachment: scroll;
     filter: opacity(80%);
 }
 
 @media screen and (min-device-width:1200px) and (max-device-width:1600px) and (-webkit-min-device-pixel-ratio:1)
 {
-    .top{
+    #top{
         padding:70px;
     }
 }
@@ -24,7 +24,8 @@
 #title{
     font-size: 5rem;
     font-family: 'Righteous', cursive;
-    text-shadow: 5px 0px 30px #f6f5f5;
+    text-shadow: 10px 0px 40px #f6f5f5;
+    padding-top:70px;
     
 }
 
@@ -45,6 +46,23 @@
     padding-top: 50px;
 }
 
+input[type="search"]
+{
+    padding: 20px;
+    font-size: 20px;
+    border-radius: 10px;
+    background-color: #f4f5db;
+    transition-property: background-color;
+    transition-duration:0.5s;
+    transition-delay:0.2s;
+    transition-timing-function:ease-in-out;
+}
+
+input[type="search"]:focus
+{
+    background-color: #fff;
+    border: none;
+}
 
 
 #table{
@@ -95,14 +113,15 @@ th, td{
 h2{
     font-size: 45px;
     font-family: 'Roboto Slab', serif;
-    padding-bottom:50px;
+    padding-bottom:20px;
  
  }
 
  @media screen and (max-width:1020px)
 {
     h2{
-        font-size:20px;
+        padding-bottom:10px;
+        font-size:25px;
     }
 }
 
@@ -124,7 +143,7 @@ h2{
 
 
 .form-group{
-    padding:5px;
+    padding:20px;
 }
 
 input[type="text"]
@@ -136,8 +155,8 @@ input[type="text"]
   border-bottom-left-radius:10px;
   border-bottom-right-radius:10px;
   
-  background-color:#effad3;
-  padding:10px;
+  background-color:#eaffd0;
+  padding:19px;
   
   transition-property:background-color;
   transition-duration: 1s;
@@ -145,7 +164,11 @@ input[type="text"]
   outline: hidden;
   outline-color: none;
   font-family: 'Antic', sans-serif;
+  /*font-family: 'Brygada 1918', serif;*/
   font-size: 1rem;
+  letter-spacing: 1px;
+  font-weight:600;
+  
 }
 
 input[type="text"]:focus{
@@ -153,6 +176,8 @@ input[type="text"]:focus{
     background-color:#fff ;
     border-color: #fff;
     outline:hidden;
+    font-size: 0.2rem;
+    font-weight: 400;
 
 }
 
@@ -174,7 +199,7 @@ label{
 @media screen and (max-width:1020px)
 {
     label{
-        font-size: 18px;
+        font-size: 15px;
     }
 }
 
@@ -229,23 +254,7 @@ label{
 
 }
 
-input[type="search"]
-{
-    padding: 20px;
-    font-size: 20px;
-    border-radius: 30px;
-    background-color: #f4f5db;
-    transition-property: background-color;
-    transition-duration:0.5s;
-    transition-delay:0.2s;
-    transition-timing-function:ease-in-out;
-}
 
-input[type="search"]:focus
-{
-    background-color: #fff;
-    border: none;
-}
 
 
 
@@ -267,6 +276,7 @@ input[type="search"]:focus
     color:#aaaaaa;
     font-size: 20px;
 }
+
 
 
 

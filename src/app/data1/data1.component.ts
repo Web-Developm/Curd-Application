@@ -1,6 +1,7 @@
 import { NullVisitor } from '@angular/compiler/src/render3/r3_ast';
 import { Component, Input, NgModule, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { disableDebugTools } from '@angular/platform-browser';
 
 
 
@@ -21,6 +22,10 @@ export class Data1Component implements OnInit {
 
   // public storage: Array<{ id: number, name: string, salary: number, age: number }> = [];
 
+  public storage: any = this.data;
+
+
+
 
   title = "App";
 
@@ -29,47 +34,21 @@ export class Data1Component implements OnInit {
 
 
 
-  check = (): void => {
-
-    let submitted: boolean = false;
-    alert("id is avilable");
-    console.log("Id is avilable");
-
+  random = (): void => {
+    this.id = Math.floor(Math.random() * 100);
   }
 
 
-
   add = (): void => {
+
+
 
     this.data.push({ id: this.id, name: this.name, salary: this.salary, age: this.age });
     alert("Successfully add");
 
     this.reset();
-    //this.find(index,info1); 
-
-    /*
-
-    function pushToArray(arr,obj)
-    {
-      const index=arr.findIndex((e) => e.id === obj.id);
-
-      if(index === -1)
-      {
-        arr.push(obj);
-      }
-      else{
-        arr[index]=obj;
-      }
-    }
-
-
-
-    */
-
-
 
   }
-
 
   reset() {
     this.id = "";
@@ -78,7 +57,13 @@ export class Data1Component implements OnInit {
     this.age = "";
   }
 
+
+
+
+
   dup = (id: number, info: any): any => {
+
+
 
     if (this.id == info.id) {
       alert("Id is not available");
@@ -86,46 +71,43 @@ export class Data1Component implements OnInit {
   }
 
 
-
-
-  find = (element: any, index: any, array: any): any => {
-    return (array[index] == this.id);
-  }
-
-  passed = this.data.filter(this.find);
-
-
   update = (info: any, index: any) => {
     let a = confirm("Are sure update the record");
 
-    if (a == true) {
-      //console.log(info);
+    this.id = info.id;
+    this.name = info.name;
+    this.salary = info.salary;
+    this.age = info.age;
+    //console.log(info);
 
-      this.id = info.id;
-      this.name = info.name;
-      this.salary = info.salary;
-      this.age = info.age;
+  }
+
+
+
+
+  update1 = (): any => {
+
+    let a = confirm("Once updated can't modify");
+
+    if (a == true) {
+      let objIndex = this.data.findIndex((obj => obj.id === this.id));
+      this.data[objIndex].name = this.name;
+      this.data[objIndex].salary = this.salary;
+      this.data[objIndex].age = this.age;
+      alert("Successfully update the table record");
+      this.reset();
     }
+    
 
     else {
-      alert("We stopped the update");
+      alert("Cancel");
     }
 
   }
 
-  update1 = (info: any, id: any, name: any, salary: any, age: any): any => {
 
-    this.id = id;
 
-    if (this.id === id) {
-      console.log(id);
 
-      info.pushToArray(name, salary, age);
-
-      
-    }
-
-  }
 
   delete = (id: number) => {
     let r = confirm("Are you sure delete the item");

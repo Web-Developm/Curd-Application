@@ -1,5 +1,6 @@
-<div class="jumbotron-fluid top">
+<div class="jumbotron-fluid top" id="top">
     <h1 id="title" class="text-center text-white">Crud Application <i class="fas fa-spinner fa-pulse"></i></h1>
+
 
 </div>
 
@@ -8,7 +9,8 @@
     <br>
     <br>
 
-    <input type="text" class="form-control" placeholder="Search"><br><br>
+    <input type="search" class="form-control" placeholder="Search"><br><br>
+
     <div class="card">
         <div class="card-header bg-dark text-white">
             <h2 class="card-title text-center">List of Employees </h2>
@@ -96,7 +98,7 @@
 
         <div class="text-center d-grid gap-2">
             <button (click)="add()" [disabled]="!data1.valid" type="button" class="sub btn btn-outline">
-                <i class="fas fa-1x fa-fw fa-life-ring fa-spin"></i> Add </button>
+                <i class="fas fa-hourglass-half fa-spin"></i> Add </button>
 
             <!--<ul *ngFor="let info1 of data; let j=index">
                     <li>{{info1.id}}</li>
@@ -105,12 +107,20 @@
 
         </div>
 
-        <div *ngFor="let info1 of data; let k=index" class="text-center d-grid gap-2">
-            <button (click)="update1(info1,id,name,salary,age)" class="sub btn btn-outline">Update</button>
+        <div class="text-center d-grid gap-2">
+
+            <button (click)="update1()" [disabled]="!data1.valid" class="sub btn btn-outline"><i
+                    class="fas fa-fw fa-check-circle"></i>Update</button>
         </div>
 
 
     </form>
+</div>
+
+<div class="container-fluid">
+
+    <img class="images rounded mx-auto d-block" src="\assets\qrcode_localhost.png">
+
 </div>
 
 <br>
@@ -118,3 +128,7 @@
 <br>
 <br>
 <br>
+
+<div *ngFor="let res of storage">
+    <p>{{res.id}}</p>
+</div>
