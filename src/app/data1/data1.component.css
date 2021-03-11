@@ -11,7 +11,7 @@
     background-position:center top;
     background-image:url("C:\Users\Satya\OneDrive\Documents\angular\crud-application\src\assets\sergi-kabrera-2xU7rYxsTiM-unsplash.jpg");
     background-attachment: scroll;
-    filter: opacity(80%);
+    filter: opacity(100%);
 }
 
 @media screen and (min-device-width:1200px) and (max-device-width:1600px) and (-webkit-min-device-pixel-ratio:1)
@@ -177,15 +177,15 @@ input[type="text"]
   
 }
 
-/*input[type="text"]:focus{
+input[type="text"]:focus{
 
     background-color:#fff ;
     border-color: #fff;
     outline:hidden;
-    font-size: 0.2rem;
+    
     font-weight: 400;
 
-}*/
+}
 
 @media screen and (max-width:1020px)
 {
