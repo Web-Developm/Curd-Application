@@ -44,12 +44,7 @@ export class Data1Component implements OnInit {
     let date=d.getDate();
 
     //console.log(hour*min*sec*date);
-
-    
-
     this.id=hour*min*sec;
-
-    
 
   }
 
