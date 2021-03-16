@@ -1,6 +1,7 @@
 import { NullVisitor } from '@angular/compiler/src/render3/r3_ast';
 import { Component, Input, NgModule, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { log } from 'node:console';
 import { threadId } from 'node:worker_threads';
 import { element } from 'protractor';
 //import { disableDebugTools } from '@angular/platform-browser';
@@ -19,39 +20,132 @@ export class Data1Component implements OnInit {
   public name!: any;
   public salary!: any;
   public age!: any;
-  public data: Array<{
-    id: number;
-    name: string;
-    salary: number;
-    age: number;
-  }> = [];
+  public data: Array<{ id: number; name: string; salary: number; age: number; }> = [];
   public search!: string;
-
-  // public storage: Array<{ id: number, name: string, salary: number, age: number }> = [];
-
-  public storage: any = this.data;
-
   title = 'App';
 
-  nameError = false;
-  iderror = false;
+  //public storage: any = this.data;
+
+
+  
+
+  result1=():any=>{
+    let result:any=[...new Set(this.data.map(res=>res.id))];
+    console.log(result);
+  }
+
+
+  duplicates = (element: any, index: any, array: any): any => {
+    return array.indexOf(element) === index
+  }
+
+  //simple: any = [1,2,3,4,54,1,2,3].filter(this.duplicates);
+
+
+
+  rd=():any=>{
+    let uuidv4 = require("uuid/v4")
+
+  }
+
+
 
   today: number = Date.now();
 
+  // Random Number
   display = (): any => {
+    
     let d: any = new Date();
-    let hour = d.getHours();
-    let min = d.getMinutes();
-    let sec = d.getSeconds();
-    let date = d.getDate();
+    let date=[
+      d.getFullYear(),
+      d.getMonth(),
+      d.getDate(),
+      d.getHours(),
+      d.getMinutes(),
+      d.getSeconds(),
+      d.getMilliseconds()
+    ];
 
-    //console.log(hour*min*sec*date);
-    this.id = hour * min * sec;
+    let y=d.getFullYear();
+    let m=d.getMonth();
+    let day=d.getDay();
+    let da=d.getDate();
+    let h=d.getHours();
+    let mi=d.getMinutes();
+    let s=d.getSeconds();
+    let milli=d.getMilliseconds();
+
+    
+
+    switch(m)
+    {
+      case 0:
+        m="January";
+        break;
+      case 1:
+        m="February";
+        break;
+      
+      case 2:
+        m="March";
+        break;
+      
+      default:
+        break;
+    }
+
+    switch(day)
+    {
+      case 0:
+        day="Monday";
+        break;
+      case 2:
+        day="Tuesday";
+        break;
+
+      case 3:
+        day="Wednesday";
+        break;
+      
+      case 4:
+        day="Friday";
+        break;
+      
+      case 5:
+        day="Saturday";
+        break;
+      case 6:
+        day="Sunday";
+        break;
+        
+    }
+
+
+    
+    let sample=[
+      y,
+      m,
+      day,
+      da,
+      h,
+      mi,
+      s,
+      milli
+    ];
+
+    this.id=sample.join("-");
+
   };
 
   random = (): void => {
     this.id = Math.floor(Math.random() * 100);
   };
+
+
+
+
+  // Stored to the table
+  //Add
 
   click1 = false; //enable
 
@@ -66,14 +160,29 @@ export class Data1Component implements OnInit {
     });
 
     alert('Successfully add');
-
     this.reset();
-
     this.click1 = this.click1; //enable
+
+    this.result1();
+
   };
 
-  
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  //Reset fields
   reset() {
     this.id = '';
     this.name = '';
@@ -81,18 +190,8 @@ export class Data1Component implements OnInit {
     this.age = '';
   }
 
-  dup = (id: number, info: any): any => {
-    if (this.id == info.id) {
-      alert('Id is not available');
-    }
-  };
 
-  isDisabled = false;
-
-  dis(sam: string) {
-    this.isDisabled = true;
-  }
-
+  //Update table record
   click2 = true; // disable
 
   update = (info: any, index: any) => {
@@ -109,21 +208,18 @@ export class Data1Component implements OnInit {
   update1 = (): any => {
     let a = confirm("Once updated can't modify");
 
-    if (a == true) {
+    
       let objIndex = this.data.findIndex((obj) => obj.id === this.id);
       this.data[objIndex].name = this.name;
       this.data[objIndex].salary = this.salary;
       this.data[objIndex].age = this.age;
-      alert('Successfully update the table record');
       this.reset();
       this.click1 = !this.click1; //enabled
       this.click2 = !this.click2; //disabled
       //this.click1 = this.click1;
-    } else {
-      alert('Cancel');
-    }
   };
 
+  //Delete the table records
   delete = (id: number) => {
     let r = confirm('Are you sure delete the item');
     if (r == true) {
@@ -137,6 +233,8 @@ export class Data1Component implements OnInit {
   sort = (j: number) => {
     this.data.sort();
   };
+
+
 
   ngOnInit(): void { }
 }

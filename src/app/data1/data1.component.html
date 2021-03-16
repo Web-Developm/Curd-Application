@@ -66,7 +66,7 @@
             <label><i class="far fa-1x fa-fw fa-id-card"></i> Id
                 <span class="required">*</span>
             </label>
-            <input type="text" class="form-control" name="id" id="id" [(ngModel)]="id"  placeholder="Id"
+            <input (click)="display()" type="text" class="form-control" name="id" id="id" [(ngModel)]="id"  placeholder="Id"
                 required minlength="4" appForbiddenName="1" />
 
             <!--<div *ngIf="id.invalid && (id.dirty || id.touched)" class="alert alert-danger">
@@ -126,14 +126,43 @@
     </form>
 </div>
 
-<div class="container-fluid">
+<!--<div class="container-fluid">
     <img class="images rounded mx-auto d-block" src="\assets\qrcode_localhost.png" />
+</div>-->
+
+<br />
+<br />
+<br />
+<br />
+<br />
+
+
+
+<div class="container">
+    <table  class="table table-bordered table-hover table-responsive">
+        <thead class="bg-dark text-white">
+            <th>Id</th>
+            <th>Employee Name</th>
+            <th>Salary</th>
+            <th>Age</th>
+        </thead>
+
+        <tbody *ngFor="let sample of data">
+            <td>{{sample.id}}</td>
+            <td>{{sample.name}}</td>
+            <td>{{sample.salary}}</td>
+            <td>{{sample.age}}</td>
+        </tbody>
+    </table>
 </div>
 
-<br />
-<br />
-<br />
-<br />
-<br />
+<button (click)="result1()" type="button" class="btn btn-dark">Display</button>
 
-<button type="button" [disabled]="click2" class="btn btn-dark">Display</button>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
