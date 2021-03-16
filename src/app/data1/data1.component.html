@@ -66,7 +66,7 @@
             <label><i class="far fa-1x fa-fw fa-id-card"></i> Id
                 <span class="required">*</span>
             </label>
-            <input type="text" class="form-control" name="id" id="id" [(ngModel)]="id" #id="ngModel" placeholder="Id"
+            <input type="text" class="form-control" name="id" id="id" [(ngModel)]="id" placeholder="Id"
                 required minlength="4" appForbiddenName="1" />
 
             <div *ngIf="id.invalid && (id.dirty || id.touched)" class="alert alert-danger">
