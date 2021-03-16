@@ -1,132 +1,137 @@
 <div class="jumbotron-fluid top" id="top">
-    <h1 id="title" class="text-center text-white">Crud Application <i class="fas fa-spinner fa-pulse"></i></h1>
+    <h1 id="title" class="text-center text-white">
+        Crud Application <i class="fas fa-spinner fa-pulse"></i>
+    </h1>
 
-    <p id="d" class="text-white text-center">{{today | date:'full'}}</p>
-
+    <p id="d" class="text-white text-center">{{ today | date: "full" }}</p>
 </div>
 
-
 <div class="container-fluid" id="table">
-    <br>
-    <br>
+    <br />
+    <br />
 
-    <input type="search" class="form-control" placeholder="Search" [(ngModel)]="search"><br><br>
+    <input type="search" class="form-control" placeholder="Search" [(ngModel)]="search" /><br /><br />
 
     <div class="card">
-        <div class="card-header bg-secondary text-white">
-            <h2 class="card-title text-center">List of Employees </h2>
+        <div class="card-header bg-dark text-white">
+            <h2 class="card-title text-center">List of Employees</h2>
         </div>
 
         <div class="card-body text-center">
-
             <table class="table table-responsive table-bordered table-hover text-center">
-
-                <thead class="bg-secondary text-white">
+                <thead class="bg-dark text-white">
                     <tr>
                         <th><i class="fas fa-id-card"></i> Id</th>
                         <th><i class="fas fa-1x fa-fw fa-user"></i>Employee Name</th>
                         <th><i class="fas fa-1x fa-fw fa-money-bill"></i> Salary</th>
                         <th><i class="fas fa-people-carry"></i> Age</th>
-                        <th><i class="fas fa-fw fa-1x fa-user-edit"></i> </th>
+                        <th><i class="fas fa-fw fa-1x fa-user-edit"></i></th>
                         <th><i class="fas fa-fw fa-1x fa-user-times"></i></th>
                     </tr>
-
                 </thead>
 
-                <tbody *ngFor="let info of data; let i=index; let k=index" [attr.id]="info.id">
+                <tbody *ngFor="let info of data; let i = index; let k = index" [attr.id]="info.id">
                     <tr>
                         <!--<td *ngIf="info.id==this.id; else sample">{{info.id}}</td>
                         <ng-template #sample>Already in table</ng-template>-->
-                        <td>{{info.id}}</td>
-                        <td [ngStyle]="{'fontWeight':'bold'}">{{info.name | uppercase}}</td>
-                        <td>{{info.salary}}</td>
-                        <td>{{info.age}}</td>
-                        <td><button type="button" id="date" class="btn btn-outline-dark" (click)="update(info,k)"> <i
-                                    class="fas fa-edit"></i> </button></td>
-                        <td><button type="button" id="date" class="btn btn-outline-dark" (click)="delete(i)"><i
-                                    class="fas fa-1x fa-fw fa-trash-alt"></i></button></td>
-
+                        <td>{{ info.id }}</td>
+                        <td [ngStyle]="{ fontWeight: 'bold' }">
+                            {{ info.name | uppercase }}
+                        </td>
+                        <td>{{ info.salary }}</td>
+                        <td>{{ info.age }}</td>
+                        <td>
+                            <button type="button" id="date" class="btn btn-outline-dark" (click)="update(info, k)">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                        </td>
+                        <td>
+                            <button type="button" id="date" class="btn btn-outline-dark" (click)="delete(i)">
+                                <i class="fas fa-1x fa-fw fa-trash-alt"></i>
+                            </button>
+                        </td>
                     </tr>
-
                 </tbody>
-
-
             </table>
-
         </div>
     </div>
 </div>
 
-
-
-
-
 <div class="container" id="form">
-
-    <h2 class="text-center"><i class="fas fa-users"></i> Add User </h2>
-    <br>
+    <h2 class="text-center"><i class="fas fa-users"></i> Add User</h2>
+    <br />
     <p class="man">*Fields mandatory</p>
     <form #data1="ngForm" id="form">
-
-
-
-
         <div class="form-group">
-            <label><i class="far fa-1x fa-fw fa-id-card"></i> Id <span class="required">*</span> </label>
-            <input (click)="display()" type="text" class="form-control" name="id" id="id" [(ngModel)]="id" placeholder="Id" required>
+            <label><i class="far fa-1x fa-fw fa-id-card"></i> Id
+                <span class="required">*</span>
+            </label>
+            <input type="text" class="form-control" name="id" id="id" [(ngModel)]="id" #id="ngModel" placeholder="Id"
+                required minlength="4" appForbiddenName="1" />
+
+            <div *ngIf="id.invalid && (id.dirty || id.touched)" class="alert alert-danger">
+                <div *ngIf="id.errors.required">Id is required</div>
+
+                <div *ngIf="id.errors.minlength">
+                    Name must be at least 4 characters long.
+                </div>
+
+                <div *ngIf="id.errors.forbiddenName">Name cannot be Bob.</div>
+            </div>
+
             <!--<div [hidden]="id.valid || name-pristine" class="alert alert-danger">Name is required</div> -->
         </div>
 
         <div class="form-group">
-            <label><i class="fas fa-1x fa-fw fa-user"></i> Employee Name <span class="required">*</span></label>
-            <br>
+            <label><i class="fas fa-1x fa-fw fa-user"></i> Employee Name
+                <span class="required">*</span></label>
+            <br />
             <input type="text" class="form-control" name="name" id="name" [(ngModel)]="name" placeholder="Name"
-                required>
+                required />
         </div>
 
-
         <div class="form-group">
-            <label><i class="fas fa-1x fa-fw fa-money-bill"></i> Salary <span class="required">*</span></label>
+            <label><i class="fas fa-1x fa-fw fa-money-bill"></i> Salary
+                <span class="required">*</span></label>
             <input type="text" class="form-control" name="salary" id="salary" [(ngModel)]="salary" placeholder="Salary"
-                required>
+                required />
         </div>
 
         <div class="form-group">
-            <label><i class="fas fa-people-carry"></i> Age <span class="required">*</span></label>
-            <input type="text" class="form-control" name="age" id="age" [(ngModel)]="age" placeholder="Age" required>
-
+            <label><i class="fas fa-people-carry"></i> Age
+                <span class="required">*</span></label>
+            <input type="text" class="form-control" name="age" id="age" [(ngModel)]="age" placeholder="Age" required />
         </div>
 
         <div class="text-center d-grid gap-2">
-            <button (click)="add()" [disabled]="!data1.valid" type="button" class="sub btn btn-outline">
-                <i class="fas fa-hourglass-half fa-spin"></i> Add </button>
+            <!--<button *ngIf="!buttondisabled" (click)="buttondisabled= true">Disable Button</button>
+
+            <button *ngIf="buttondisabled" (click)="buttondisabled= false">Enable Button</button>-->
+
+            <button (click)="add()" type="button" [disabled]="click1" class="sub btn btn-outline">
+                <i class="fas fa-hourglass-half fa-spin" name="add" id="add"></i> Add
+            </button>
 
             <!--<ul *ngFor="let info1 of data; let j=index">
                     <li>{{info1.id}}</li>
                     <button (click)="find(j,info1)" type="button" class="btn btn-outline">hello</button>
                 </ul>-->
-
         </div>
 
         <div class="text-center d-grid gap-2">
-
-            <button (click)="update1()" [disabled]="!data1.valid" class="sub btn btn-outline"><i
-                    class="fas fa-fw fa-check-circle"></i>Update</button>
+            <button (click)="update1()" [disabled]="click2" class="sub btn btn-outline">
+                <i class="fas fa-fw fa-check-circle" name="update" id="update"></i>Update
+            </button>
         </div>
-
-
     </form>
 </div>
 
 <div class="container-fluid">
-
-    <img class="images rounded mx-auto d-block" src="\assets\qrcode_localhost.png">
-
+    <img class="images rounded mx-auto d-block" src="\assets\qrcode_localhost.png" />
 </div>
 
-<br>
-<br>
-<br>
-<br>
-<br>
-
+<br />
+<br />
+<br />
+<br />
+<br />

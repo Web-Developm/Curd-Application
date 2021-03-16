@@ -1,226 +1,198 @@
-*{
-    --border-color: #eff7e1;
-    --background-color: #fff9b0;
+* {
+  --border-color: #eff7e1;
+  --background-color: #fff9b0;
 }
 
-
-#top{
-    
-    padding-top:200px;
-    background-size: cover;
-    background-position:center top;
-    background-image:url("C:\Users\Satya\OneDrive\Documents\angular\crud-application\src\assets\sergi-kabrera-2xU7rYxsTiM-unsplash.jpg");
-    background-attachment: scroll;
-    filter: opacity(100%);
+#top {
+  padding-top: 200px;
+  background-size: cover;
+  background-position: center top;
+  background-image: url("C:\Users\Satya\OneDrive\Documents\angular\crud-application\src\assets\sergi-kabrera-2xU7rYxsTiM-unsplash.jpg");
+  background-attachment: scroll;
+  filter: opacity(100%);
 }
 
-@media screen and (min-device-width:1200px) and (max-device-width:1600px) and (-webkit-min-device-pixel-ratio:1)
-{
-    #top{
-        padding:70px;
-    }
+@media screen and (min-device-width: 1200px) and (max-device-width: 1600px) and (-webkit-min-device-pixel-ratio: 1) {
+  #top {
+    padding: 70px;
+  }
 }
 
-.jumbotron-fluid #title{
-    font-size: 5rem;
-    font-family: 'Righteous', cursive;
-    text-shadow: 10px 0px 40px #f6f5f5;
-    padding-top:70px;
-    
+#title {
+  font-size: 5rem;
+  font-family: "Righteous", cursive;
+  text-shadow: 10px 0px 40px #f6f5f5;
+  padding-top: 70px;
 }
 
-@media screen and (max-width:1020px)
-{
-    #title{
-        font-size:2rem;
-    }
+@media screen and (max-width: 1020px) {
+  #title {
+    font-size: 2rem;
+  }
 }
 
-.jumbotron-fluid #d{
-    padding-top:100px;
-    font-size:30px;
-    font-weight: 700;
+#d {
+  padding-top: 100px;
+  font-size: 30px;
+  font-weight: 700;
 }
 
-
-input[type="search"]
-{
-    padding: 20px;
-    font-size: 20px;
-    border-radius: 10px;
-    background-color: #f4f5db;
-    transition-property: background-color;
-    transition-duration:0.5s;
-    transition-delay:0.2s;
-    transition-timing-function:ease-in-out;
-}
-
-input[type="search"]:focus
-{
-    background-color: #fff;
-    border: none;
-}
-
-
-
-.card{
-    border-top-left-radius: 100px;
-    border-top-right-radius: 100px;
-}
-
-.card .card-header{
-    /*background-image: url(C:\Users\Satya\OneDrive\Documents\angular\crud-application\src\assets\max-shilov-phwRbHF6T8Q-unsplash.jpg);*/
+@media screen and (max-width: 1020px) {
+  #d {
     padding-top: 50px;
-    margin-bottom: 0px;
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
-}
-
-.card .card-body{
-    padding-top: 50px;
-    
-}
-
-
-
-
-
-#table{
-    padding-bottom:150px;
-}
-
-tr{
-    padding:10px;
-}
-
-th{
-    font-size:20px;
-}
-
-td{
     font-size: 15px;
-    
+    font-weight: 600;
+  }
 }
 
-@media screen and (max-width:1020px)
-{
-    th{
-        font-size:13px;
-    }
-
-    td{
-        font-size:10px ;
-    }
-
-
+input[type="search"] {
+  padding: 20px;
+  font-size: 20px;
+  border-radius: 10px;
+  background-color: #f4f5db;
+  transition-property: background-color;
+  transition-duration: 0.5s;
+  transition-delay: 0.2s;
+  transition-timing-function: ease-in-out;
 }
 
-th, td{
-    text-align: center;
+input[type="search"]:focus {
+  background-color: #fff;
+  border: none;
 }
 
-
-
-
-
-#form{
-    
-    background-repeat: no-repeat;
-    background-size: cover;
-    padding-bottom: 150px;
+.card {
+  border-top-left-radius: 100px;
+  border-top-right-radius: 100px;
 }
 
-h2{
-    font-size: 45px;
-    font-family: 'Roboto Slab', serif;
-    padding-bottom:20px;
- 
- }
-
- @media screen and (max-width:1020px)
-{
-    h2{
-        padding-bottom:10px;
-        font-size:25px;
-    }
+.card .card-header {
+  /*background-image: url(C:\Users\Satya\OneDrive\Documents\angular\crud-application\src\assets\max-shilov-phwRbHF6T8Q-unsplash.jpg);*/
+  padding-top: 50px;
+  margin-bottom: 0px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
 }
 
-.man{
-    margin-left:80%;
-    color:#aaaaaa;
-    font-size: 20px;
+.card .card-body {
+  padding-top: 50px;
 }
 
-@media screen and (max-width:1200px)
-{
-    .man{
-        margin-left: 70%;
-        font-size: 15px;
-        
-    }
-    
+#table {
+  padding-bottom: 150px;
 }
 
-
-.form-group{
-    padding:20px;
+tr {
+  padding: 10px;
 }
 
-input[type="text"]
-{
+th {
+  font-size: 20px;
+}
+
+td {
+  font-size: 15px;
+}
+
+@media screen and (max-width: 1020px) {
+  th {
+    font-size: 13px;
+  }
+
+  td {
+    font-size: 10px;
+  }
+}
+
+th,
+td {
+  text-align: center;
+}
+
+#form {
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-bottom: 150px;
+}
+
+h2 {
+  font-size: 45px;
+  font-family: "Roboto Slab", serif;
+  padding-bottom: 20px;
+}
+
+@media screen and (max-width: 1020px) {
+  h2 {
+    padding-bottom: 10px;
+    font-size: 25px;
+  }
+}
+
+.man {
+  margin-left: 80%;
+  color: #aaaaaa;
+  font-size: 20px;
+}
+
+@media screen and (max-width: 1200px) {
+  .man {
+    margin-left: 70%;
+    font-size: 15px;
+  }
+}
+
+.form-group {
+  padding: 20px;
+}
+
+input[type="text"] {
   /*border: 2px solid var(--border-color);*/
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 
-  border-bottom-left-radius:10px;
-  border-bottom-right-radius:10px;
-  
-  background-color:#eaffd0;
-  padding:19px;
-  
-  transition-property:background-color;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+
+  background-color: #eaffd0;
+  padding: 19px;
+
+  transition-property: background-color;
   transition-duration: 1s;
   transition-timing-function: ease-in-out;
   outline: hidden;
   outline-color: none;
-  font-family: 'Antic', sans-serif;
+  font-family: "Antic", sans-serif;
   /*font-family: 'Brygada 1918', serif;*/
   font-size: 1rem;
   letter-spacing: 1px;
-  font-weight:600;
-  
+  font-weight: 600;
 }
 
-input[type="text"]:focus{
+input[type="text"]:focus {
+  background-color: #fff;
+  border-color: #fff;
+  outline: hidden;
 
-    background-color:#fff ;
-    border-color: #fff;
-    outline:hidden;
-    
-    font-weight: 400;
-
+  font-weight: 400;
 }
 
-@media screen and (max-width:1020px)
-{
-    input[type="text"]
-    {
-        padding:5px;
-        font-size: 1rem;
-    }
+@media screen and (max-width: 1020px) {
+  input[type="text"] {
+    padding: 5px;
+    font-size: 1rem;
+  }
 }
 
-label{
+label {
   font-size: 21px;
   font-weight: 400;
   margin-bottom: 10px;
 }
 
-@media screen and (max-width:1020px)
-{
-    label{
-        font-size: 15px;
-    }
+@media screen and (max-width: 1020px) {
+  label {
+    font-size: 15px;
+  }
 }
 
 /*#form{
@@ -231,57 +203,41 @@ label{
     
 }*/
 
-
 /*h3{
     font-size: 45px;
    font-family: 'Roboto Slab', serif;
 }*/
 
-
-
-.sub{
-    padding-top: 20px;
-    font-size: 20px;
-    font-family: 'Roboto Slab', serif;
+.sub {
+  padding-top: 20px;
+  font-size: 20px;
+  font-family: "Roboto Slab", serif;
 }
 
-.sub:hover{
-    background-color: black;
-    color: #fff;
-    border-radius: 30px;
-    font-size: 35px;
-    transition-property: background-color, color, border-radius, font-size;
-    transition-timing-function:ease-in-out;
-    transition-duration: 0.5s;
-    transition-delay:0.2s;
-    
+.sub:hover {
+  background-color: black;
+  color: #fff;
+  border-radius: 30px;
+  font-size: 35px;
+  transition-property: background-color, color, border-radius, font-size;
+  transition-timing-function: ease-in-out;
+  transition-duration: 0.5s;
+  transition-delay: 0.2s;
 }
 
-#date{
-    border-radius: 100px;
-    font-size: 15px;
-    outline: none;
-    border-color: none;
-    cursor: pointer;
-    
+#date {
+  border-radius: 100px;
+  font-size: 15px;
+  outline: none;
+  border-color: none;
+  cursor: pointer;
 }
 
-@media screen and(max-width:1020px)
-{
-    #date{
-        font-size: 2px;
-    }
-
+@media screen and(max-width:1020px) {
+  #date {
+    font-size: 2px;
+  }
 }
-
-
-
-
-
-
-
-
-
 
 /*.ng-valid[required], .ng-valid.required{
     border-left:15px solid #42a948;
@@ -292,13 +248,7 @@ label{
     border-left: 5px solid #a9a9a9;
 }*/
 
-.required{
-    color:#aaaaaa;
-    font-size: 20px;
+.required {
+  color: #aaaaaa;
+  font-size: 20px;
 }
-
-
-
-
-
-
