@@ -11,8 +11,6 @@ import { element } from 'protractor';
   styleUrls: ['./data1.component.css'],
 })
 export class Data1Component implements OnInit {
-
-
   a = true;
 
   constructor() { }
@@ -57,10 +55,8 @@ export class Data1Component implements OnInit {
 
   click1 = false; //enable
 
-
   add = (): void => {
-
-    let c = confirm("stored in table records?")
+    let c = confirm('stored in table records?');
 
     this.data.push({
       id: this.id,
@@ -74,14 +70,9 @@ export class Data1Component implements OnInit {
     this.reset();
 
     this.click1 = this.click1; //enable
-
-
-
   };
 
-  user = (): void => {
-    this.click1 = this.click1;
-  }
+  
 
   reset() {
     this.id = '';
@@ -89,8 +80,6 @@ export class Data1Component implements OnInit {
     this.salary = '';
     this.age = '';
   }
-
-
 
   dup = (id: number, info: any): any => {
     if (this.id == info.id) {
@@ -115,8 +104,7 @@ export class Data1Component implements OnInit {
     this.age = info.age;
     this.click2 = !this.click2; //enabled
     this.click1 = !this.click1; //disabled
-
-  }
+  };
 
   update1 = (): any => {
     let a = confirm("Once updated can't modify");
@@ -128,14 +116,12 @@ export class Data1Component implements OnInit {
       this.data[objIndex].age = this.age;
       alert('Successfully update the table record');
       this.reset();
-      this.click1 = !this.click1; //enabled
+      //this.click1 = !this.click1; //enabled
       this.click2 = !this.click2; //disabled
-      //this.click1 = this.click1;
+      this.click1 = this.click1;
     } else {
       alert('Cancel');
     }
-
-
   };
 
   delete = (id: number) => {
