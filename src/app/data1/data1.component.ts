@@ -116,9 +116,9 @@ export class Data1Component implements OnInit {
       this.data[objIndex].age = this.age;
       alert('Successfully update the table record');
       this.reset();
-      //this.click1 = !this.click1; //enabled
+      this.click1 = !this.click1; //enabled
       this.click2 = !this.click2; //disabled
-      this.click1 = this.click1;
+      //this.click1 = this.click1;
     } else {
       alert('Cancel');
     }
