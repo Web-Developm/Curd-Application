@@ -24,7 +24,7 @@ export class Data1Component implements OnInit {
   public age!: any;
   public data: Array<{ id: number; name: string; salary: number; age: number; }> = [];
   public search!: string;
-  title = 'App';
+  title = 'App Development';
 
   //public storage: any = this.data;
 
