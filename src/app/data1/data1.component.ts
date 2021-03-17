@@ -1,9 +1,11 @@
+import { analyzeAndValidateNgModules } from '@angular/compiler';
 import { NullVisitor } from '@angular/compiler/src/render3/r3_ast';
 import { Component, Input, NgModule, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { log } from 'node:console';
 import { threadId } from 'node:worker_threads';
 import { element } from 'protractor';
+import { EMPTY } from 'rxjs';
 //import { disableDebugTools } from '@angular/platform-browser';
 
 @Component({
@@ -35,9 +37,7 @@ export class Data1Component implements OnInit {
   }
 
 
-  duplicates = (element: any, index: any, array: any): any => {
-    return array.indexOf(element) === index
-  }
+  
 
   //simple: any = [1,2,3,4,54,1,2,3].filter(this.duplicates);
 
@@ -88,6 +88,22 @@ export class Data1Component implements OnInit {
       
       case 2:
         m="March";
+        break;
+      
+      case 3:
+        m="April";
+        break;
+      
+      case 4:
+        m="May";
+        break;
+      
+      case 5:
+        m="June";
+        break;
+      
+      case 6:
+        m="July";
         break;
       
       default:
@@ -143,6 +159,10 @@ export class Data1Component implements OnInit {
 
 
 
+  unique:any =this.data.filter((element,index,array) => array.findIndex(t => t.id === element.id) ==index)
+
+
+
 
   // Stored to the table
   //Add
@@ -150,37 +170,27 @@ export class Data1Component implements OnInit {
   click1 = false; //enable
 
   add = (): void => {
+
     let c = confirm('stored in table records?');
 
-    this.data.push({
-      id: this.id,
-      name: this.name,
-      salary: this.salary,
-      age: this.age,
-    });
+    if(this.data.findIndex((element:any) => element.id === this.id) === -1)
+    {
+      this.data.push({
+        id: this.id,
+        name: this.name,
+        salary: this.salary,
+        age: this.age,
+      });
 
-    alert('Successfully add');
-    this.reset();
-    this.click1 = this.click1; //enable
+      alert('Successfully add');
+      this.reset();
+      this.click1 = this.click1; //enable
+      
+    } else {
+      alert("Already use");
+    }
 
-    this.result1();
-
-  };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  }
 
   //Reset fields
   reset() {
@@ -230,9 +240,7 @@ export class Data1Component implements OnInit {
     }
   };
 
-  sort = (j: number) => {
-    this.data.sort();
-  };
+ 
 
 
 
