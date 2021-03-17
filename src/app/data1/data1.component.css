@@ -169,7 +169,7 @@ input[type="text"] {
 }
 
 input[type="text"]:focus {
-  background-color: #fff;
+  background-color: #ffffff;
   border-color: #fff;
   outline: hidden;
 
