@@ -188,6 +188,7 @@ export class Data1Component implements OnInit {
       
     } else {
       alert("Already use");
+      this.reset();
     }
 
   }
